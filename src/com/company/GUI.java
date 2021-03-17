@@ -39,12 +39,16 @@ public class GUI extends JFrame {
             public void changedUpdate(DocumentEvent e) {
             }
         });
-        textLengthLabel = new JLabel();
-        showTextLength();
-        add(textLengthLabel, BorderLayout.EAST);
+
+
+        progressBar = new JProgressBar(0, 10);
+        progressBar.setValue(0);
+        add(progressBar);
 
         setVisible(true);
     }
+
+
 
 
     public void updateTextLength() {
@@ -53,11 +57,11 @@ public class GUI extends JFrame {
     }
 
     void showTextLength() {
-        textLengthLabel.setText(application.textLength + "");
+       progressBar.setValue(application.textLength);
     }
 
     private Application application;
     private JMenuBar menuBar;
-    private JLabel textLengthLabel;
+    private JProgressBar progressBar;
     private JTextField textField;
 }
